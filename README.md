@@ -21,4 +21,18 @@
 3. Choose branch *main*
 4. Run workflow
 
->
+
+#### Tag Scenario 
+- smoke-test
+- post-place-holder
+- create-user-input-from-scenario
+- create-user-input-random
+- create-user-input-from-datatable
+- get-place-holder
+- validate-json-schema
+- search-by-id
+- search-by-user-id
+- search-by-title
+- search-by-id-and-userId
+- seacrh-10-user-by-id
+
