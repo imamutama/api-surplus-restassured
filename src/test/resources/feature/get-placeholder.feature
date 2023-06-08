@@ -20,10 +20,10 @@ Feature: API Placeholder Surplus Testing
   @search-by-user-id
   Scenario: User able to search by user id
     Given set header application json
-    When set parameter with param "userId" has value a 12 in request specification
+    When set parameter with param "userId" has value a 1 in request specification
     And request get api placeholder
     Then request response has a 200 response code
-    And requests response contains the correct json data with key "[0].userId" and value 12
+    And requests response contains the correct json data with key "[0].userId" and value 1
 
   @search-by-title
   Scenario: User able to search by title
