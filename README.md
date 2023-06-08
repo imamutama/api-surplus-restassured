@@ -1,4 +1,3 @@
-# Hijra Automation API
 
 ## Tools Application
 
