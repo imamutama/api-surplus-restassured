@@ -6,10 +6,9 @@ on:
       logLevel:
       tags:
         description: 'Input tag scenario'
-        type: choice
         required: true
-        options:
-        - smoke-test
+        default: smoke-test
+        
 jobs:
  run-automation:
   runs-on: ubuntu-latest
