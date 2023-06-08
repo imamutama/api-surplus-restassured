@@ -1,0 +1,26 @@
+name: Running on demand automation API
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+      tags:
+        description: 'Input tag scenario'
+        type: choice
+        required: true
+        options:
+        - @smoke-test
+
+jobs:
+ run-automation:
+  runs-on: k8s-stg-hijra-gh-runner
+  steps:
+    - uses: actions/checkout@v3
+    - name: Setup Maven Action
+      uses: s4u/setup-maven-action@v1.2.1
+      with:
+        java-version: 11
+    - name: Running API
+      if: ${{ inputs.tags == 'api-mobile-stream-trx' }}
+      run:  mvn clean test -D"cucumber.filter.tags=${{ inputs.tags }}"
+    
