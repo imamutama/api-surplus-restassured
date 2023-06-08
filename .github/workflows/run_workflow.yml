@@ -21,4 +21,6 @@ jobs:
         java-version: 11
     - name: Running API
       run:  mvn clean test -D"cucumber.filter.tags=@${{ inputs.tags }}"
+    - name: Publish Test Report
+      uses: scacap/action-surefire-report@v1
     
