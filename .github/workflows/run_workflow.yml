@@ -6,14 +6,12 @@ on:
       logLevel:
       tags:
         description: 'Input tag scenario'
-        type: choice
         required: true
-        options:
-        - @smoke-test
-
+        default: smoke-test
+        
 jobs:
  run-automation:
-  runs-on: k8s-stg-hijra-gh-runner
+  runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v3
     - name: Setup Maven Action
@@ -21,6 +19,10 @@ jobs:
       with:
         java-version: 11
     - name: Running API
-      if: ${{ inputs.tags == 'api-mobile-stream-trx' }}
-      run:  mvn clean test -D"cucumber.filter.tags=${{ inputs.tags }}"
+      run:  mvn clean test -D"cucumber.filter.tags=@${{ inputs.tags }}"
+    - name: Publish Test Report
+      uses: deblockt/cucumber-report-annotations-action@v1.7
+      with:
+       access-token: ${{ secrets.GITHUB_TOKEN }}
+       path: "**/cucumber-report.json"
     
