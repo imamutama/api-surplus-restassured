@@ -1,4 +1,4 @@
-@get-place-holder @all-test
+@get-place-holder @smoke-test
 Feature: API Placeholder Surplus Testing
 
   @validate-json-schema
