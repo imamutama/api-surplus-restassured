@@ -20,6 +20,5 @@ jobs:
       with:
         java-version: 11
     - name: Running API
-      if: ${{ inputs.tags == 'api-mobile-stream-trx' }}
       run:  mvn clean test -D"cucumber.filter.tags=@${{ inputs.tags }}"
     
